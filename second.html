@@ -1,0 +1,111 @@
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Il tuo simbolo</title>
+  <style>
+    html,body{height:100%;margin:0}
+    body{display:flex;align-items:center;justify-content:center;background:#fff8f0;font-family:system-ui,Segoe UI,Roboto,sans-serif;color:#222}
+    .card{max-width:720px;padding:36px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06);text-align:center}
+    h1{margin:0 0 12px;font-size:28px}
+    p{margin:0;font-size:18px;line-height:1.4}
+    .play-fallback{margin-top:18px}
+    .hidden{display:none}
+
+  body {
+    background-color: #111;
+    color: #eee;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+  }
+  .message {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  grande {
+    font-size: 90px
+
+    
+  }
+</style>
+</head>
+<body>
+<audio id="audio" src="creepy.mp3" preload="auto"></audio>
+
+<!-- Script per gestire la riproduzione -->
+<script>
+  const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('playBtn'); // pulsante di fallback
+
+  // Se la prima pagina ha impostato la flag
+  if (sessionStorage.getItem('playMusic') === '1') {
+    sessionStorage.removeItem('playMusic'); // rimuove la flag
+    audio.currentTime = 0;
+    audio.play().catch(() => {
+      // Autoplay bloccato → mostra pulsante
+      playBtn.style.display = 'inline-block';
+    });
+  } else {
+    // Se l'utente arriva direttamente sulla seconda pagina
+    playBtn.style.display = 'inline-block';
+  }
+
+  // Pulsante di fallback
+  playBtn.addEventListener('click', () => {
+    audio.play().catch(err => console.error(err));
+    playBtn.style.display = 'none';
+  });
+</script>
+  <div class="message">
+	<br><br><br><br><br><br><strong><br>[Connessione stabile – Nodo sincronizzato]</strong>  
+
+<br> <br>
+ 
+	Non distogliere lo sguardo. <br><br>
+ 
+	Hai creduto di scansionare un codice. <br>
+	È comprensibile. Tutti lo fanno la prima volta.<br> <br>
+ 
+	Ma il codice non è un’immagine. È un occhio. <br><br>
+ 
+	Quando la fotocamera ha messo a fuoco, <br>
+	due sistemi si sono sovrapposti per un istante: <br>
+	il tuo sguardo e il suo. <br><br>
+ 
+	Tu lo hai guardato, <br>
+	ma lui ti ha letto. <br><br>
+ 
+	Ora ogni specchio che incroci ti restituirà la versione <br>
+	che lui ha memorizzato. <br><br>
+ 
+	Noterai piccole differenze: <br>
+	una smorfia che non hai fatto, <br>
+	uno sguardo che si muove un istante prima del tuo, <br>
+	la sensazione che la tua immagine sappia già cosa farai. <br><br>
+ 
+	Gli specchi di Dedeá non riflettono: archiviano. <br><br>
+ 
+	Ciò che osservi è solamente un previsione fallace.  <br><br>
+ 
+	Trova il punto dove il riflesso non ti segue. <br>
+	Lì, la realtà cede. <br><br>
+ 
+	Il simbolo è dietro la linea dove la luce si interrompe. <br><br>
+ 
+	Trovalo. Non fotografarlo. Non toccarlo. <br>
+	Ogni contatto aggiorna la sequenza. <br><br>
+ 
+	<strong>[Codice valore <strong>HID</strong> verificato] </strong><br><br>
+ 
+	Non sei in un gioco. <br>
+	Sei dentro una registrazione che si sta riscrivendo <br>
+	mentre la vivi. <br><br><br>
+  </div>
+</body>
+</html>
