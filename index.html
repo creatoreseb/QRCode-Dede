@@ -1,0 +1,56 @@
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Attiva il tuo simbolo</title>
+  <style>
+    html,body{height:100%;margin:0
+}
+
+    body {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#111;
+      font-family:system-ui,Segoe UI,Roboto,sans-serif
+}
+    button {
+      appearance:none;
+      Border:2px;
+      padding:18px 28px;
+      border-radius:12px;
+      Font-size:30px;
+      background:#D3D3D3;
+      Color:#293133;
+      cursor:pointer;
+      box-shadow:5 6px 18px rgba(108,108,255,.18)}
+
+  </style>
+</head>
+<body>
+  <button id="activate"><b>Connessione al Nodo<b></button>
+
+  <!-- Audio: sostituisci src con il tuo file o URL -->
+  <audio id="audio" src="creepy.mp3" preload="auto"></audio>
+
+  <script>
+    const btn = document.getElementById('activate');
+    const audio = document.getElementById('audio');
+
+    btn.addEventListener('click', (e) => {
+      // Imposta una flag che la seconda pagina leggerà
+      sessionStorage.setItem('playMusic', '1');
+
+      // Avvia la musica (user gesture -> solitamente consentita)
+      audio.currentTime = 0;
+      audio.play().catch(()=>{
+        // se per qualche motivo il play fallisce, lo segnaliamo in console
+        console.warn('Riproduzione non avviata sulla prima pagina. La seconda pagina tenterà di riprodurre.');
+      });
+
+      // Passa alla seconda pagina
+      window.location.href = 'second.html';
+    });
+  </script>
+</body>
+</html>
